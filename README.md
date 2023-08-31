@@ -1,10 +1,10 @@
 # Java-Project
-##Description of the Program and Phase Completed 
+## Description of the Program and Phase Completed 
 
 
 
 
-Key Features:
+## Key Features:
 
 1. Efficient Data Entry: With my user-friendly interface, you can easily input patient data, including patient ID, systolic blood pressure (SBP), and diastolic blood pressure (DBP).
 
@@ -14,7 +14,7 @@ Key Features:
 
 4. Clear Results:  Get instant access to patient-specific results. The program displays patient IDs alongside their calculated MAP values, allowing you to quickly review and assess patient health.
 
-How It Works:
+## How It Works:
 
 1. Input the Number of Records: Specify the number of patient records you'll be working with. This ensures the program tailors its processing to your needs.
 
