@@ -1,5 +1,5 @@
 # Java-Project
-## Description of the Program and Phase Completed 
+## Description of the Program. 
 
 
 
