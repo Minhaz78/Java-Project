@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="349.0" prefWidth="420.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="cqu.drs.AdminController">
+    <children>
+        <!-- Admin Dashboard Section -->
+        <Label layoutX="149.0" layoutY="23.0" text="Admin Dashboard" textFill="#156fba">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+
+        <!-- Disaster Assessment Section -->
+        <Label layoutX="20.0" layoutY="70.0" text="Disaster Assessment">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+        <TableView fx:id="disasterTableView" layoutX="20.0" layoutY="100.0" prefHeight="200.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="typeColumn" text="Type" />
+                <TableColumn fx:id="descriptionColumn" text="Description" />
+                <TableColumn fx:id="locationColumn" text="Location" />
+                <TableColumn fx:id="severityColumn" text="Severity" />
+                <TableColumn fx:id="criticalColumn" text="Critical" />
+            </columns>
+        </TableView>
+
+        <Button layoutX="20.0" layoutY="309.0" onAction="#handleAssessDisaster" text="Assess Disaster" textFill="#26ae8c" />
+        <Button layoutX="359.0" layoutY="7.0" onAction="#handleLogout" text="Logout" textFill="#239657" />
+    </children>
+</AnchorPane>

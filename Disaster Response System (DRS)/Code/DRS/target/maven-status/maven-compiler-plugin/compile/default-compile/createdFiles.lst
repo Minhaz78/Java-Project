@@ -1,0 +1,15 @@
+cqu\drs\ResourceAllocation.class
+cqu\drs\User.class
+cqu\drs\AdminController.class
+cqu\drs\DBConnection.class
+cqu\drs\LoginController.class
+cqu\drs\RegisterController.class
+cqu\drs\Assessment.class
+cqu\drs\Department.class
+cqu\drs\DisasterController.class
+module-info.class
+cqu\drs\Disaster.class
+cqu\drs\Main.class
+cqu\drs\AlertSystem.class
+cqu\drs\UserController.class
+cqu\drs\Resource.class
