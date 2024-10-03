@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5F5DC#F5F5DC;"
+   xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="cqu.mavenproject1.ResourceController">
+   <children>
+      <Button fx:id="submitButton1" layoutX="214.0" layoutY="286.0" mnemonicParsing="false"
+         text="Submit">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="30.0" layoutY="21.0" prefHeight="26.0" prefWidth="149.0" text="Rapid Response">
+         <font>
+            <Font name="Chalkboard SE Light" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="46.0" prefHeight="26.0" prefWidth="193.0"
+         text="Disaster Management and response!">
+         <font>
+            <Font name="Apple Braille" size="11.0" />
+         </font>
+      </Label>
+      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
+         <children>
+            <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0"
+               text="Rapid Response">
+               <font>
+                  <Font name="Chalkboard SE Light" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="36.0" prefHeight="26.0" prefWidth="193.0"
+               text="Disaster Management and response!">
+               <font>
+                  <Font name="Apple Braille" size="11.0" />
+               </font>
+            </Label>
+            <Button fx:id="gotodashboardButton" layoutX="406.0" layoutY="15.0"
+               mnemonicParsing="false" text="Go to Dashboard">
+               <font>
+                  <Font name="Serif Regular" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutButton" layoutX="522.0" layoutY="15.0" mnemonicParsing="false"
+               text="Log Out">
+               <font>
+                  <Font name="Serif Regular" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="26.0" layoutY="132.0" text="Resource Name">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="169.0" text="Available Units:">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="247.0" text="Date:">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="207.0" text="Total Units:">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="90.0" text="Add New Resource" textFill="#10c41f">
+         <font>
+            <Font name="Didot" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="121.0" layoutY="127.0" prefHeight="26.0" prefWidth="150.0"
+         style="-fx-font-family: serif;">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </TextField>
+      <DatePicker layoutX="121.0" layoutY="243.0" prefHeight="26.0" prefWidth="150.0"
+         style="-fx-font-family: serif;" />
+      <TextField layoutX="121.0" layoutY="165.0" prefHeight="26.0" prefWidth="150.0"
+         style="-fx-font-family: serif;" />
+      <TextField layoutX="121.0" layoutY="201.0" prefHeight="26.0" prefWidth="150.0"
+         style="-fx-font-family: serif;" />
+      <TextField fx:id="resourceNameField" layoutX="121.0" layoutY="127.0" prefHeight="26.0"
+         prefWidth="150.0" style="-fx-font-family: serif;" />
+      <TextField fx:id="availableUnitsField" layoutX="121.0" layoutY="165.0" prefHeight="26.0"
+         prefWidth="150.0" style="-fx-font-family: serif;" />
+      <TextField fx:id="totalUnitsField" layoutX="121.0" layoutY="201.0" prefHeight="26.0"
+         prefWidth="150.0" style="-fx-font-family: serif;" />
+
+      <DatePicker fx:id="datePicker" layoutX="121.0" layoutY="243.0" prefHeight="26.0"
+         prefWidth="150.0" style="-fx-font-family: serif;" />
+
+   </children>
+</AnchorPane>
