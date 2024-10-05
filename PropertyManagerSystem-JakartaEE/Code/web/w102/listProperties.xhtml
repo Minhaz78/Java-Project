@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">List of Properties</ui:define>
+     <ui:define name="heading">List of Sale Properties</ui:define>
+
+    <ui:define name="content">
+        <!-- Data Table to display list of properties -->
+        <h:dataTable value="#{salePropertyController.properties}" var="property" border="1">
+            
+            <!-- Property ID -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID"/>
+                </f:facet>
+                <h:outputText value="#{property.id}"/>
+            </h:column>
+            
+            <!-- Property Type -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Property Type"/>
+                </f:facet>
+                <h:outputText value="#{property.propertyType}"/>
+            </h:column>
+            
+            <!-- Number of Bedrooms -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Bedrooms"/>
+                </f:facet>
+                <h:outputText value="#{property.bedrooms}"/>
+            </h:column>
+            
+            <!-- Number of Bathrooms -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Bathrooms"/>
+                </f:facet>
+                <h:outputText value="#{property.bathrooms}"/>
+            </h:column>
+
+            <!-- Sale Price -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Sale Price"/>
+                </f:facet>
+                <h:outputText value="#{property.salePrice}"/>
+            </h:column>
+            
+            <!-- Description -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Description"/>
+                </f:facet>
+                <h:outputText value="#{property.description}"/>
+            </h:column>
+
+            <!-- Street Name -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Street"/>
+                </f:facet>
+                <h:outputText value="#{property.streetName}"/>
+            </h:column>
+
+            <!-- City -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="City"/>
+                </f:facet>
+                <h:outputText value="#{property.city}"/>
+            </h:column>
+            
+            <!-- Country -->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Country"/>
+                </f:facet>
+                <h:outputText value="#{property.country}"/>
+            </h:column>
+            
+        </h:dataTable>
+
+        <!-- Links for navigation -->
+        <h:form>
+            <h:link outcome="newsale.xhtml" value="Create New Property" styleClass="btn1"/>         
+            <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+        </h:form>
+
+        <i>JSF Processing and Navigation</i>
+    </ui:define>
+
+</ui:composition>
+</html>

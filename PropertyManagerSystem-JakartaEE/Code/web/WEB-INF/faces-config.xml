@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+              http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+
+    <navigation-rule>
+        <from-view-id>/w102/newsale.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/w102/listProperties.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+<!-- Navigation rule for searching a sale property -->
+    <navigation-rule>
+        <from-view-id>/w102/searchSale.xhtml</from-view-id> <!-- The search page -->
+        <navigation-case>
+            <!-- The result from the managed bean -->
+            <to-view-id>/w102/searchSaleResult.xhtml</to-view-id> <!-- The result page -->
+        </navigation-case>
+    </navigation-rule>
+    <!-- Navigation rule for navigating to the Main Page (default.xhtml) -->
+    <navigation-rule>
+        <from-outcome>default.xhtml</from-outcome>
+        <to-view-id>/default.xhtml</to-view-id>
+    </navigation-rule>
+    <navigation-rule>
+    <from-view-id>/w103/newRent.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>success</from-outcome>
+        <to-view-id>/w103/listRentProperties.xhtml</to-view-id>
+    </navigation-case>
+</navigation-rule>
+<!-- Navigation rule for rent property search -->
+    <navigation-rule>
+        <from-view-id>/w103/searchRent.xhtml</from-view-id>
+        <navigation-case>
+            <to-view-id>/w103/searchRentResult.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/w104/newPropertyManager.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/w104/listPropertyManagers.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/w104/listPropertyManagers.xhtml</from-view-id>
+        <navigation-case>
+            <to-view-id>/w104/viewManagerDetails.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/w104/viewManagerDetails.xhtml</from-view-id>
+        <navigation-case>
+            <to-view-id>/w104/createPropertyAllocation.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Navigation rule for searching a property manager -->
+    <navigation-rule>
+        <from-view-id>/w104/searchManager.xhtml</from-view-id> <!-- Search Page -->
+        <navigation-case>
+            <from-outcome>searchManagerResult.xhtml</from-outcome> <!-- Search result -->
+            <to-view-id>/w104/searchManagerResult.xhtml</to-view-id> <!-- Navigation to search result -->
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Navigation rule for viewing the details of a specific manager -->
+    <navigation-rule>
+        <from-view-id>/w104/searchManagerResult.xhtml</from-view-id> <!-- Search Result Page -->
+        <navigation-case>
+            <from-outcome>viewManagerDetails.xhtml</from-outcome> <!-- Navigation to details page -->
+            <to-view-id>/w104/viewManagerDetails.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    <from-view-id>/newAllocation.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>listAllocation.xhtml</from-outcome>
+        <to-view-id>/listAllocation.xhtml</to-view-id>
+    </navigation-case>
+</navigation-rule>
+<converter>
+    <converter-id>salePropertyConverter</converter-id>
+    <converter-class>Converter.SalePropertyConverter</converter-class>
+</converter>
+
+</faces-config>

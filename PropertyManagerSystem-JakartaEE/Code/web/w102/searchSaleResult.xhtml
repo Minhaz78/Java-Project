@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">The Found Sale Property</ui:define>
+
+    <ui:define name="content">
+        <h:panelGrid columns="1">
+            <h:outputText value="The Found Sale Property of ID: #{salePropertyController.propertyId}" />
+
+            <h:panelGrid columns="2">
+                <h:outputText value="Property Type:" />
+                <h:outputText value="#{salePropertyController.foundProperty.propertyType}" />
+
+                <h:outputText value="No. of Bedrooms:" />
+                <h:outputText value="#{salePropertyController.foundProperty.bedrooms}" />
+
+                <h:outputText value="No. of Bathrooms:" />
+                <h:outputText value="#{salePropertyController.foundProperty.bathrooms}" />
+
+                <h:outputText value="Address:" />
+                <h:outputText value="#{salePropertyController.foundProperty.streetNumber} #{salePropertyController.foundProperty.streetName}, #{salePropertyController.foundProperty.city} #{salePropertyController.foundProperty.country}" />
+
+                <h:outputText value="Sale price:" />
+                <h:outputText value="#{salePropertyController.foundProperty.salePrice}" />
+
+                <h:outputText value="Property Description:" />
+                <h:outputText value="#{salePropertyController.foundProperty.description}" />
+            </h:panelGrid>
+        </h:panelGrid>
+
+        <!-- Navigation Links -->
+        <h:link outcome="listProperties.xhtml" value="The list of sale properties" styleClass="btn1" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+
+</ui:composition>
+</html>

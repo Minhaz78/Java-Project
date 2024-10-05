@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">Search a Sale Property</ui:define>
+ <ui:define name="heading">Search a Sale Property</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="propertyId" value="Property ID:" />
+                <h:inputText id="propertyId" value="#{salePropertyController.propertyId}" required="true" />
+                <h:message for="propertyId" style="color:red" />
+            </h:panelGrid>
+
+            <h:commandButton value="SEARCH" action="#{salePropertyController.searchPropertyById}" />
+
+            <!-- Navigation Links -->
+            <h:link outcome="listProperties.xhtml" value="The list of sale properties" styleClass="btn1" />
+            <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+</html>

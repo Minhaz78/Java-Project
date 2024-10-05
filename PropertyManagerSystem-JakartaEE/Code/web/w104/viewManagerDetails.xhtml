@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">Property Manager Details</ui:define>
+ <ui:define name="heading">Property Manager Details</ui:define>
+    <ui:define name="content">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Manager Name:" />
+            <h:outputText value="#{propertyManagerController.propertyManager.firstName} #{propertyManagerController.propertyManager.lastName}" />
+
+            <h:outputLabel value="Phone Number:" />
+            <h:outputText value="#{propertyManagerController.propertyManager.phone}" />
+
+            <h:outputLabel value="Mobile:" />
+            <h:outputText value="#{propertyManagerController.propertyManager.mobile}" />
+
+            <h:outputLabel value="Email Address:" />
+            <h:outputText value="#{propertyManagerController.propertyManager.email}" />
+        </h:panelGrid>
+        <h:outputText value="Property Allocations (#{propertyManagerController.propertyManager.allocatedProperties.size()}):" />
+        <h:panelGroup rendered="#{propertyManagerController.propertyManager.allocatedProperties.size() == 0}">
+            <h:outputText value="This manager has not been allocated with any properties yet." />
+        </h:panelGroup>
+        <form>
+        <h:dataTable value="#{propertyManagerController.propertyManager.allocatedProperties}" var="property" rendered="#{propertyManagerController.propertyManager.allocatedProperties.size() > 0}">
+            <h:column>
+                <f:facet name="header">Property ID</f:facet>
+                <h:outputText value="#{property.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Property Type</f:facet>
+                <h:outputText value="#{property.propertyType}" />
+            </h:column>
+        </h:dataTable>
+</form>
+        <h:link outcome="w105/newAllocation.xhtml" value="Create a new allocation" styleClass="btn1" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn"/>
+    </ui:define>
+
+</ui:composition>
+</html>

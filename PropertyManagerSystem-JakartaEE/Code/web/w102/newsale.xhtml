@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">Creates a new sale Property</ui:define>
+ <ui:define name="heading">Creates new sale Property</ui:define>
+    <ui:define name="content">
+       <h:form>
+    <h:panelGrid columns="2">
+        <h:outputLabel for="propertyType" value="Property Type:" />
+        <h:inputText id="propertyType" value="#{salePropertyController.property.propertyType}" required="true" />
+
+        <h:outputLabel for="bedrooms" value="No. of Bedrooms:" />
+        <h:inputText id="bedrooms" value="#{salePropertyController.property.bedrooms}" required="true" />
+
+        <h:outputLabel for="bathrooms" value="No. of Bathrooms:" />
+        <h:inputText id="bathrooms" value="#{salePropertyController.property.bathrooms}" required="true" />
+
+        <h:outputLabel for="description" value="Property Description:" />
+        <h:inputTextarea id="description" value="#{salePropertyController.property.description}" cols="50" rows="5" />
+
+        <h:outputLabel for="streetNumber" value="Street Number:" />
+        <h:inputText id="streetNumber" value="#{salePropertyController.property.streetNumber}" required="true" />
+
+        <h:outputLabel for="streetName" value="Street Name:" />
+        <h:inputText id="streetName" value="#{salePropertyController.property.streetName}" required="true" />
+
+        <h:outputLabel for="city" value="City:" />
+        <h:inputText id="city" value="#{salePropertyController.property.city}" required="true" />
+
+        <h:outputLabel for="postcode" value="Postcode:" />
+        <h:inputText id="postcode" value="#{salePropertyController.property.postcode}" required="true" />
+
+        <h:outputLabel for="country" value="Country:" />
+        <h:inputText id="country" value="#{salePropertyController.property.country}" required="true" />
+
+        <h:outputLabel for="salePrice" value="Sale Price:" />
+        <h:inputText id="salePrice" value="#{salePropertyController.property.salePrice}" required="true" />
+    </h:panelGrid>
+
+    <h:commandButton value="CREATE" action="#{salePropertyController.createProperty}" />
+</h:form>
+
+
+        <h:form>
+            
+            <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn1"/>
+        </h:form>
+        
+        <i>JSF Processing and Navigation</i>
+
+    </ui:define>
+    
+</ui:composition>
+</html>

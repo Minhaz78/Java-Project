@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">Creates a new book</ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <table border="0">
+                <tr>
+                    <td>
+                        <h:outputLabel value="ID : "/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{myBookController09.book.id}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="ISBN : "/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{myBookController09.book.isbn}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Title :"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{myBookController09.book.title}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Price : "/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{myBookController09.book.price}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Description  : "/>
+                    </td>
+                    <td>
+                        <h:inputTextarea value="#{myBookController09.book.description}" cols="20" rows="5"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Number of pages : "/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{myBookController09.book.nbOfPage}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Illustrations : "/>
+                    </td>
+                    <td>
+                        <h:selectBooleanCheckbox value="#{myBookController09.book.illustrations}"/>
+                    </td>
+                </tr>
+            </table>
+
+            <h:commandButton value="Create a book" action="#{myBookController09.doCreateBook}" styleClass="btn"/>
+        </h:form>
+
+        <h1>List of the books</h1>
+        <h:dataTable value="#{myBookController09.bookList}" var="bk" border="1">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID"/>
+                </f:facet>
+                <h:outputText value="#{bk.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ISBN"/>
+                </f:facet>
+                <h:outputText value="#{bk.isbn}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Title"/>
+                </f:facet>
+                <h:outputText value="#{bk.title}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Price dollar"/>
+                </f:facet>
+                <h:outputText value="#{bk.price}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Price euro"/>
+                </f:facet>
+                <h:outputText value="#{bk.price}">
+                    <f:converter converterId="euroConverter"/>
+                </h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Description"/>
+                </f:facet>
+                <h:outputText value="#{bk.description}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Number Of Pages"/>
+                </f:facet>
+                <h:outputText value="#{bk.nbOfPage}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Illustrations"/>
+                </f:facet>
+                <h:outputText value="#{bk.illustrations}"/>
+            </h:column>
+
+        </h:dataTable>
+
+        <h:form>
+            <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn1"/>
+        </h:form>
+        
+        <i>JSF Processing and Navigation</i>
+
+    </ui:define>
+    
+</ui:composition>
+</html>

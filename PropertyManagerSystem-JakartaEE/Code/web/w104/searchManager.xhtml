@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">Search a Property Manager</ui:define>
+ <ui:define name="heading">Search a Property Manager</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Manager First Name:" />
+                <h:inputText value="#{propertyManagerController.firstName}" />
+
+                <h:outputLabel value="Manager Last Name:" />
+                <h:inputText value="#{propertyManagerController.lastName}" />
+
+                <h:commandButton value="SEARCH" action="#{propertyManagerController.searchManager}" />
+            </h:panelGrid>
+        </h:form>
+
+        <h:link outcome="listPropertyManagers.xhtml" value="The list of property managers" styleClass="btn1"  />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">List of Property Managers</ui:define>
+ <ui:define name="heading">List of Property Managers</ui:define>
+    <ui:define name="content">
+        <h:form>
+        <h:dataTable value="#{propertyManagerController.allManagers}" var="manager">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{manager.id}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">First Name</f:facet>
+                <h:outputText value="#{manager.firstName}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                <h:outputText value="#{manager.lastName}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandLink value="View Details" action="#{propertyManagerController.viewManagerDetails(manager.id)}" />
+            </h:column>
+        </h:dataTable>
+</h:form>
+        <h:link outcome="newPropertyManager.xhtml" value="Create a New Property Manager" styleClass="btn1" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+
+</ui:composition>
+</html>

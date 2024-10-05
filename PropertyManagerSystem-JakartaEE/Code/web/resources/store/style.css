@@ -1,0 +1,219 @@
+
+body {
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'serif';
+    background-color: #f4f7f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+h1#heading {
+    background-color: #506987;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+/* Form Styles */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Input Field Styles */
+form input[type="text"], form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+/* Links */
+a {
+    text-decoration: none;
+    color: #506987;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form textarea {
+    height: 100px;
+}
+/* Footer Styles */
+p#footer {
+    margin: 20px 0 0 0;
+    border-top: 1px solid #333;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #506987;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Navigation List Styling */
+ul#data-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul#data-list li {
+    margin: 10px 0;
+}
+
+ul#data-list li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #506987;
+    border: 2px solid #506987;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+ul#data-list li a:hover {
+    background-color: #506987;
+    color: #fff;
+    border-color: #3b4f6a;
+}
+
+/* Button Styling */
+h:commandButton {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+h:commandButton:hover {
+    background-color: #ff4c4c;
+}
+
+/* Table Styling for Data Display */
+table#data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table#data-table th, table#data-table td {
+    padding: 15px;
+    text-align: left;
+}
+
+table#data-table th {
+    background-color: #506987;
+    color: white;
+}
+
+table#data-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table#data-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Error Message Styling */
+ul#messages, ul#messages li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#messages {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+ul#messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+ul#messages li.msg_error, ul#messages li.msg_fatal {
+    color: white;
+    background-color: #ff6b6b;
+}
+
+ul#messages li.msg_warn {
+    color: white;
+    background-color: #ffcc00;
+}
+
+ul#messages li.msg_info {
+    color: white;
+    background-color: #5bc0de;
+}
+.btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn1 {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px; /* Add space between buttons */
+    
+}
+
+.btn:hover {
+    background-color: #ff4c4c;
+}
+
+
+.btn:hover {
+    background-color: #ff4c4c;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    h1#heading {
+        font-size: 24px;
+    }
+
+    ul#data-list li a {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    table#data-table th, table#data-table td {
+        padding: 10px;
+    }
+
+    h:commandButton {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

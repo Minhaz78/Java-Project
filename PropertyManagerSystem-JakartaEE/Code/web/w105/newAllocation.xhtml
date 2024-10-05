@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+    <ui:define name="title">Create a New Allocation</ui:define>
+     <ui:define name="heading">Create a New Allocation</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                
+                <!-- Property Manager Dropdown -->
+                <h:outputLabel value="Property Manager:" />
+                <h:selectOneMenu value="#{propertyAllocationController.selectedManager}" converter="propertyManagerConverter">
+                    <f:selectItems value="#{propertyManagerController.propertyManagers}" var="manager"
+                                   itemValue="#{manager}" 
+                                   itemLabel="#{manager.firstName} #{manager.lastName}" />
+                </h:selectOneMenu>
+
+                <!-- Sale Property Dropdown -->
+                <h:outputLabel value="Sale Property:" />
+                <h:selectOneMenu value="#{propertyAllocationController.selectedSaleProperty}" converter="salePropertyConverter">
+                    <f:selectItems value="#{salePropertyController.properties}" var="property"
+                                   itemValue="#{property}" 
+                                   itemLabel="#{property.streetName}, #{property.city}" />
+                </h:selectOneMenu>
+
+                <!-- Rent Property Dropdown -->
+                <h:outputLabel value="Rent Property:" />
+                <h:selectOneMenu value="#{propertyAllocationController.selectedRentProperty}" converter="rentPropertyConverter">
+                    <f:selectItems value="#{rentPropertyController.properties}" var="rentProperty"
+                                   itemValue="#{rentProperty}" 
+                                   itemLabel="#{rentProperty.streetName}, #{rentProperty.city}" />
+                </h:selectOneMenu>
+                
+                <!-- Command Button to Submit the Form -->
+                <h:commandButton value="Allocate" action="#{propertyAllocationController.createAllocation}" />
+                
+            </h:panelGrid>
+        </h:form>
+
+        <!-- Navigation Links -->
+        <h:link outcome="listAllocation.xhtml" value="The list of allocations" styleClass="btn1" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+</ui:composition>
+</html>
