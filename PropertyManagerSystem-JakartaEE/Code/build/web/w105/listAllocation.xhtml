@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+    <ui:define name="title">The Current Allocations</ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:outputText value="Successfully created the allocation for #{propertyManagerController.propertyManager.firstName} #{propertyManagerController.propertyManager.lastName}" rendered="#{not empty propertyAllocationController.newAllocation}" />
+
+                <h:dataTable value="#{propertyAllocationController.allocations}" var="allocation" border="1" cellpadding="5">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{allocation.id}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Property Manager</f:facet>
+                        <h:outputText value="#{allocation.propertyManager.firstName} #{allocation.propertyManager.lastName}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Property</f:facet>
+                        <h:outputText value="#{allocation.saleProperty.streetName}, #{allocation.saleProperty.city}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Time Created</f:facet>
+                        <h:outputText value="#{allocation.timeCreated}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandLink value="Delete" action="#{propertyAllocationController.deleteAllocation(allocation.id)}" />
+                    </h:column>
+                </h:dataTable>
+            </h:panelGrid>
+        </h:form>
+
+        <h:link outcome="newAllocation.xhtml" value="Create a new allocation" styleClass="btn" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn1" />
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">List of Rent Properties</ui:define>
+ <ui:define name="heading">List of Rent Properties</ui:define>
+    <ui:define name="content">
+        <h:dataTable value="#{rentPropertyController.rentProperties}" var="rent">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{rent.id}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Property Type</f:facet>
+                <h:outputText value="#{rent.propertyType}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Bedrooms</f:facet>
+                <h:outputText value="#{rent.bedrooms}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Bathrooms</f:facet>
+                <h:outputText value="#{rent.bathrooms}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Weekly Rent</f:facet>
+                <h:outputText value="#{rent.weeklyRent}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Furnished</f:facet>
+                <h:outputText value="#{rent.furnished}" />
+            </h:column>
+        </h:dataTable>
+
+        <h:link outcome="newRent.xhtml" value="Create a Rent Property" styleClass="btn1" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+
+</ui:composition>
+</html>

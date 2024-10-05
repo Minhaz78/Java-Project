@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="layout.xhtml">
+    
+    <ui:define name="title">Real Estate Management</ui:define>
+    
+    <ui:define name="heading">Real Estate Property E-Business System</ui:define>
+    
+    <ui:define name="content">
+        <h:form>
+            <!-- Property Management Section -->
+            <h3>Property Management</h3>
+            <h:outputLink value="w102/newsale.xhtml">Create a sale property</h:outputLink><br/>
+            <h:outputLink value="w102/listProperties.xhtml">List all sale properties</h:outputLink><br/>
+            <h:outputLink value="w102/searchSale.xhtml">Search a sale property</h:outputLink><br/>
+            <h:outputLink value="w103/newRent.xhtml">Create a rent property</h:outputLink><br/>
+            <h:outputLink value="w103/listRentProperties.xhtml">List all rent properties</h:outputLink><br/>
+            <h:outputLink value="w103/searchRent.xhtml">Search a rent property</h:outputLink><br/>
+
+            <!-- Property Manager Section -->
+            <h3>Property Manager</h3>
+            <h:outputLink value="w104/newPropertyManager.xhtml">Create a property manager</h:outputLink><br/>
+            <h:outputLink value="w104/listPropertyManagers.xhtml">List all property managers</h:outputLink><br/>
+            <h:outputLink value="w104/searchManager.xhtml">Search a property manager</h:outputLink><br/>
+
+            <!-- Allocation Management Section -->
+            <h3>Allocation Management</h3>
+            <h:outputLink value="w105/newAllocation.xhtml">Create an allocation</h:outputLink><br/>
+            <h:outputLink value="w105/listAllocation.xhtml">List all allocations</h:outputLink><br/>
+            <h:outputLink value="searchAllocation.xhtml">Search an allocation</h:outputLink><br/>
+
+            <!-- Logout Section -->
+            <h:outputLink value="logout.xhtml" Styleclass="btn">Logout</h:outputLink><br/>
+        </h:form>
+    </ui:define>
+    
+</ui:composition> 
+</html>

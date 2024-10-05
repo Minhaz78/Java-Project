@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">Create a Rent Property</ui:define>
+ <ui:define name="heading">Create a Rent Property</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="propertyType" value="Property Type:" />
+                <h:inputText id="propertyType" value="#{rentPropertyController.rentProperty.propertyType}" required="true" />
+
+                <h:outputLabel for="bedrooms" value="No. of Bedrooms:" />
+                <h:inputText id="bedrooms" value="#{rentPropertyController.rentProperty.bedrooms}" required="true" />
+
+                <h:outputLabel for="bathrooms" value="No. of Bathrooms:" />
+                <h:inputText id="bathrooms" value="#{rentPropertyController.rentProperty.bathrooms}" required="true" />
+
+                <h:outputLabel for="description" value="Description:" />
+                <h:inputTextarea id="description" value="#{rentPropertyController.rentProperty.description}" cols="30" rows="4" />
+
+                <h:outputLabel for="streetNumber" value="Street Number:" />
+                <h:inputText id="streetNumber" value="#{rentPropertyController.rentProperty.streetNumber}" required="true" />
+
+                <h:outputLabel for="streetName" value="Street Name:" />
+                <h:inputText id="streetName" value="#{rentPropertyController.rentProperty.streetName}" required="true" />
+
+                <h:outputLabel for="city" value="City:" />
+                <h:inputText id="city" value="#{rentPropertyController.rentProperty.city}" required="true" />
+
+                <h:outputLabel for="postcode" value="Postcode:" />
+                <h:inputText id="postcode" value="#{rentPropertyController.rentProperty.postcode}" required="true" />
+
+                <h:outputLabel for="country" value="Country:" />
+                <h:inputText id="country" value="#{rentPropertyController.rentProperty.country}" required="true" />
+
+                <h:outputLabel for="weeklyRent" value="Weekly Rent:" />
+                <h:inputText id="weeklyRent" value="#{rentPropertyController.rentProperty.weeklyRent}" required="true" />
+
+                <h:outputLabel for="furnished" value="Furnished:" />
+                <h:selectBooleanCheckbox id="furnished" value="#{rentPropertyController.rentProperty.furnished}" />
+            </h:panelGrid>
+
+            <h:commandButton value="Create" action="#{rentPropertyController.createRentProperty}" />
+        </h:form>
+        <h:link outcome="listRentProperties.xhtml" value="The list of rent properties" styleClass="btn1"/>
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+
+</ui:composition>
+</html>

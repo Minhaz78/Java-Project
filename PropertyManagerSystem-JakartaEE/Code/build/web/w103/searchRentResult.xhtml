@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+
+    <ui:define name="title">The Found Rent Property</ui:define>
+
+    <ui:define name="content">
+        <h:panelGrid columns="1">
+            <h:outputText value="The Found Rent Property of ID: #{rentPropertyController.rentPropertyId}" />
+
+            <h:panelGrid columns="2">
+                <h:outputText value="Property Type:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.propertyType}" />
+
+                <h:outputText value="No. of Bedrooms:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.bedrooms}" />
+
+                <h:outputText value="No. of Bathrooms:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.bathrooms}" />
+
+                <h:outputText value="Address:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.streetNumber} #{rentPropertyController.foundRentProperty.streetName}, #{rentPropertyController.foundRentProperty.city} #{rentPropertyController.foundRentProperty.country}" />
+
+                <h:outputText value="Weekly Rent:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.weeklyRent} per week" />
+
+                <h:outputText value="Furnished:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.furnished}" />
+
+                <h:outputText value="Property Description:" />
+                <h:outputText value="#{rentPropertyController.foundRentProperty.description}" />
+            </h:panelGrid>
+        </h:panelGrid>
+
+        <h:link outcome="listRentProperties.xhtml" value="The list of rent properties" styleClass="btn1" />
+        <h:link outcome="/default.xhtml" value="Main Page" styleClass="btn" />
+    </ui:define>
+
+</ui:composition>
+</html>
