@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;"
+   prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;"
    xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
    fx:controller="cqu.mavenproject1.UpdateprofileController">
    <children>
-      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
+      <Pane prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
          <children>
             <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0"
                text="Rapid Response">

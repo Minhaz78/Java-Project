@@ -1,7 +1,5 @@
 package cqu.mavenproject1;
 
-import java.time.LocalDate;
-
 /**
  * The Disaster class represents a disaster event, including its type, location,
  * date, and description.
@@ -12,7 +10,7 @@ public class Disaster {
 
     private String disasterType;  // The type of the disaster (e.g., Fire, Flood)
     private String location;      // The location where the disaster occurred
-    private LocalDate date;       // The date when the disaster occurred
+    private String date;       // The date when the disaster occurred
     private String description;   // A description of the disaster
 
     /**
@@ -23,7 +21,7 @@ public class Disaster {
      * @param date the date when the disaster occurred
      * @param description a description of the disaster
      */
-    public Disaster(String disasterType, String location, LocalDate date, String description) {
+    public Disaster(String disasterType, String location, String date, String description) {
         this.disasterType = disasterType;
         this.location = location;
         this.date = date;
@@ -71,7 +69,7 @@ public class Disaster {
      *
      * @return the disaster date
      */
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -80,7 +78,7 @@ public class Disaster {
      *
      * @param date the disaster date to set
      */
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
+prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17"
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.DashboardController">
    <children>
        Button to navigate to Disaster Report 
@@ -40,7 +40,7 @@ version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="dashboardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
+minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17"
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.DashboardController"
 style="-fx-font-family: 'serif';">
    <children>
@@ -52,11 +52,11 @@ Disaster" />
 </AnchorPane>-->
 
 <AnchorPane fx:id="dashboardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-   minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+   minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0"
    style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;" xmlns="http://javafx.com/javafx/17"
    xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.DashboardController">
    <children>
-      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
+      <Pane prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
          <children>
             <Label layoutX="20.0" layoutY="3.0" prefHeight="26.0" prefWidth="149.0"
                text="Rapid Response">
@@ -90,21 +90,21 @@ Disaster" />
             <Font name="Didot" size="16.0" />
          </font>
       </Label>
-      <TabPane layoutX="3.0" layoutY="102.0" prefHeight="294.0" prefWidth="593.0"
+      <TabPane layoutX="3.0" layoutY="102.0" prefHeight="294.0" prefWidth="793.0"
          style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0; -fx-font-family: 'Serif';"
          tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Live  Updates">
                <content>
-                  <VBox prefHeight="400.0" prefWidth="600.0">
+                  <VBox prefHeight="400.0" prefWidth="800.0">
                      <children>
-                        <TableView fx:id="liveUpdatesTable" prefHeight="400.0" prefWidth="600.0">
+                        <TableView fx:id="liveUpdatesTable" prefHeight="400.0" prefWidth="800.0">
                            <columns>
                               <TableColumn fx:id="updateTypeColumn" prefWidth="150.0"
                                  text="Update Type" />
                               <TableColumn fx:id="updateDescriptionColumn" prefWidth="350.0"
                                  text="Description" />
-                              <TableColumn fx:id="updateTimeColumn" prefWidth="150.0"
+                              <TableColumn fx:id="updateTimeColumn" prefWidth="350.0"
                                  text="Timestamp" />
                            </columns>
                         </TableView>
@@ -114,12 +114,12 @@ Disaster" />
             </Tab>
             <Tab text="Resource Management Panel">
                <content>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="550.0" prefWidth="100.0">
                      <children>
-                        <VBox prefHeight="236.0" prefWidth="593.0">
+                        <VBox prefHeight="336.0" prefWidth="793.0">
                            <children>
-                              <TableView fx:id="resourceTable" prefHeight="254.0" prefWidth="593.0"
-                                 style="-fx-background-color: #F0FFF0;">
+                              <TableView fx:id="resourceTable" prefHeight="354.0" prefWidth="793.0"
+                                 style="-fx-background-color: white;">
                                  <columns>
                                     <TableColumn fx:id="resourceNameColumn" prefWidth="161.0"
                                        text="Resource Name" />
@@ -127,7 +127,7 @@ Disaster" />
                                        text="Available Units" />
                                     <TableColumn fx:id="totalUnitsColumn" prefWidth="157.0"
                                        text="Total Units" />
-                                    <TableColumn fx:id="resourceDateColumn" prefWidth="180.0"
+                                    <TableColumn fx:id="resourceDateColumn" prefWidth="360.0"
                                        text="Date" />
                                  </columns>
                               </TableView>
@@ -153,7 +153,7 @@ Disaster" />
                <content>
                   <VBox prefHeight="398.0" prefWidth="784.0">
                      <children>
-                        <TableView fx:id="disasterTable" prefHeight="249.0" prefWidth="572.0"
+                        <TableView fx:id="disasterTable" prefHeight="249.0" prefWidth="772.0"
                            style="-fx-background-color: #F0FFF0;">
                            <columns>
                               <TableColumn fx:id="disasterTypeColumn" prefWidth="123.0"
@@ -162,7 +162,7 @@ Disaster" />
                                  text="Location" />
                               <TableColumn fx:id="disasterDescriptionColumn" minWidth="0.0"
                                  prefWidth="253.0" text="Description" />
-                              <TableColumn fx:id="disasterDateColumn" prefWidth="94.0" text="Date" />
+                              <TableColumn fx:id="disasterDateColumn" prefWidth="294.0" text="Date" />
                            </columns>
                         </TableView>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="784.0"
@@ -184,9 +184,9 @@ Disaster" />
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <VBox prefHeight="232.0" prefWidth="593.0">
+                        <VBox prefHeight="232.0" prefWidth="793.0">
                            <children>
-                              <TableView fx:id="alertTableView" prefHeight="232.0" prefWidth="593.0"
+                              <TableView fx:id="alertTableView" prefHeight="232.0" prefWidth="793.0"
                                  style="-fx-background-color: #F0FFF0;">
                                  <columns>
                                     <TableColumn fx:id="alertTypeColumn" prefWidth="89.0"
@@ -197,7 +197,7 @@ Disaster" />
                                        text="Critical" />
                                     <TableColumn fx:id="alertDescriptionColumn" prefWidth="207.0"
                                        text="Description" />
-                                    <TableColumn fx:id="alertDateColumn" prefWidth="106.0"
+                                    <TableColumn fx:id="alertDateColumn" prefWidth="306.0"
                                        text="Date" />
                                  </columns>
                               </TableView>

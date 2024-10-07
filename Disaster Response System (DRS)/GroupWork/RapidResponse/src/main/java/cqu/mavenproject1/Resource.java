@@ -1,7 +1,5 @@
 package cqu.mavenproject1;
 
-import java.sql.Date;  // Import java.sql.Date for database interaction
-
 /**
  * The Resource class represents an emergency resource, such as medical supplies
  * or food, including its name, available and total units, and the date it was
@@ -14,7 +12,7 @@ public class Resource {
     private String resourceName;  // Name of the resource
     private int availableUnits;   // Number of available units of the resource
     private int totalUnits;       // Total number of units of the resource
-    private Date date;            // Date when the resource was last updated
+    private String date;            // Date when the resource was last updated
 
     /**
      * Constructor to create a Resource object.
@@ -24,7 +22,7 @@ public class Resource {
      * @param totalUnits the total number of units
      * @param date the date when the resource was last updated
      */
-    public Resource(String resourceName, int availableUnits, int totalUnits, Date date) {
+    public Resource(String resourceName, int availableUnits, int totalUnits, String date) {
         this.resourceName = resourceName;
         this.availableUnits = availableUnits;
         this.totalUnits = totalUnits;
@@ -90,7 +88,7 @@ public class Resource {
      *
      * @return the date when the resource was last updated
      */
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -99,7 +97,7 @@ public class Resource {
      *
      * @param date the date when the resource was last updated
      */
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
