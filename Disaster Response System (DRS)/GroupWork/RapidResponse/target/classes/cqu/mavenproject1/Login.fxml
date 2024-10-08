@@ -10,102 +10,90 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5F5DC;"
-   xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="cqu.mavenproject1.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #F5F5DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.LoginController">
    <children>
-      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
+      <Pane prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
          <children>
-            <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0"
-               text="Rapid Response">
+            <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0" text="Rapid Response">
                <font>
                   <Font name="Chalkboard SE Light" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="36.0" prefHeight="26.0" prefWidth="193.0"
-               text="Disaster Management and response!">
+            <Label layoutX="20.0" layoutY="36.0" prefHeight="26.0" prefWidth="193.0" text="Disaster Management and response!">
                <font>
                   <Font name="Apple Braille" size="11.0" />
                </font>
             </Label>
-            <Button fx:id="loginButtonmain" layoutX="534.0" layoutY="44.0" mnemonicParsing="false"
-               text="Log in">
+            <Button fx:id="loginButtonmain" layoutX="728.0" layoutY="44.0" mnemonicParsing="false" text="Log in">
                <font>
                   <Font name="Serif Regular" size="13.0" />
                </font>
             </Button>
+            <PasswordField fx:id="userpasswordField" layoutX="582.0" layoutY="43.0" prefHeight="26.0" prefWidth="135.0" promptText="Password" style="-fx-font-family: serif;">
+               <font>
+                  <Font name="Serif Regular" size="13.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="usernameField" layoutX="435.0" layoutY="43.0" prefHeight="26.0" prefWidth="135.0" promptText="User name" style="-fx-font-family: serif;">
+               <font>
+                  <Font name="Serif Regular" size="13.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
-      <TextField fx:id="usernameField" layoutX="241.0" layoutY="43.0" prefHeight="26.0"
-         prefWidth="135.0" promptText="User name" style="-fx-font-family: serif;">
+      <Label layoutX="355.0" layoutY="152.0" text="Name:">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="334.0" layoutY="238.0" text="Password:">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="281.0" text="Gender:">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="339.0" layoutY="318.0" text="Birthday:">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="407.0" layoutY="149.0" style="-fx-font-family: serif;">
          <font>
             <Font name="Serif Regular" size="13.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="userpasswordField" layoutX="391.0" layoutY="43.0" prefHeight="26.0"
-         prefWidth="135.0" promptText="Password" style="-fx-font-family: serif;">
+      <TextField fx:id="email" layoutX="408.0" layoutY="189.0" style="-fx-font-family: serif;">
+         <font>
+            <Font name="Serif Regular" size="13.0" />
+         </font>
+      </TextField>
+      <ChoiceBox fx:id="genderChoiceBox" layoutX="409.0" layoutY="275.0" prefHeight="26.0" prefWidth="160.0" style="-fx-font-family: serif;" />
+      <DatePicker fx:id="birthday" layoutX="409.0" layoutY="314.0" prefHeight="26.0" prefWidth="160.0" style="-fx-font-family: serif;" />
+      <Label layoutX="345.0" layoutY="113.0" text="It's free and anyone can join">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="344.0" layoutY="89.0" text="Sign Up">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="356.0" layoutY="194.0" text="Email:">
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="newPassword" layoutX="409.0" layoutY="235.0" prefHeight="26.0" prefWidth="163.0" style="-fx-font-family: serif;">
          <font>
             <Font name="Serif Regular" size="13.0" />
          </font>
       </PasswordField>
-      <Label layoutX="255.0" layoutY="152.0" text="Name:">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="234.0" layoutY="238.0" text="Password:">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="247.0" layoutY="281.0" text="Gender:">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="239.0" layoutY="318.0" text="Birthday:">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="username" layoutX="307.0" layoutY="149.0" style="-fx-font-family: serif;">
-         <font>
-            <Font name="Serif Regular" size="13.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="email" layoutX="308.0" layoutY="189.0" style="-fx-font-family: serif;">
-         <font>
-            <Font name="Serif Regular" size="13.0" />
-         </font>
-      </TextField>
-      <ChoiceBox fx:id="genderChoiceBox" layoutX="309.0" layoutY="275.0" prefHeight="26.0"
-         prefWidth="160.0" style="-fx-font-family: serif;" />
-      <DatePicker fx:id="birthday" layoutX="309.0" layoutY="314.0" prefHeight="26.0"
-         prefWidth="160.0" style="-fx-font-family: serif;" />
-      <Label layoutX="245.0" layoutY="113.0" text="It's free and anyone can join">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="244.0" layoutY="89.0" text="Sign Up">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="256.0" layoutY="194.0" text="Email:">
-         <font>
-            <Font name="Serif Regular" size="16.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="newPassword" layoutX="309.0" layoutY="235.0" prefHeight="26.0"
-         prefWidth="163.0" style="-fx-font-family: serif;">
-         <font>
-            <Font name="Serif Regular" size="13.0" />
-         </font>
-      </PasswordField>
-      <Button fx:id="signupbutton" layoutX="469.0" layoutY="362.0" mnemonicParsing="false"
-         text="Sign Up">
+      <Button fx:id="signupbutton" layoutX="569.0" layoutY="362.0" mnemonicParsing="false" text="Sign Up">
          <font>
             <Font name="Serif Regular" size="13.0" />
          </font>

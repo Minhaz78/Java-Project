@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5F5DC#F5F5DC;"
+   prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #F5F5DC#F5F5DC;"
    xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
    fx:controller="cqu.mavenproject1.DisasterReportController">
    <children>
-      <Button fx:id="submitButton" layoutX="265.0" layoutY="337.0" mnemonicParsing="false"
+      <Button fx:id="submitButton" layoutX="265.0" layoutY="338.0" mnemonicParsing="false"
          text="Submit">
          <font>
             <Font name="Serif Regular" size="13.0" />
@@ -32,7 +32,7 @@
             <Font name="Apple Braille" size="11.0" />
          </font>
       </Label>
-      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
+      <Pane prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
          <children>
             <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0"
                text="Rapid Response">
@@ -46,13 +46,13 @@
                   <Font name="Apple Braille" size="11.0" />
                </font>
             </Label>
-            <Button fx:id="DashboardButton2" layoutX="413.0" layoutY="16.0" mnemonicParsing="false"
+            <Button fx:id="DashboardButton2" layoutX="601.0" layoutY="16.0" mnemonicParsing="false"
                text="Go to Dashboard">
                <font>
                   <Font name="Serif Regular" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="logoutButton" layoutX="529.0" layoutY="15.0" mnemonicParsing="false"
+            <Button fx:id="logoutButton" layoutX="715.0" layoutY="15.0" mnemonicParsing="false"
                text="Log out">
                <font>
                   <Font name="Serif Regular" size="13.0" />
@@ -88,13 +88,11 @@
          </font>
       </Label>
       <TextField fx:id="locationField" layoutX="120.0" layoutY="167.0" prefHeight="26.0"
-         prefWidth="150.0"
-         style="-fx-font-family: serif;" />
+         prefWidth="150.0" style="-fx-font-family: serif;" />
       <DatePicker fx:id="dateField" layoutX="121.0" layoutY="203.0" prefHeight="26.0"
-         prefWidth="150.0"
-         style="-fx-font-family: serif;" />
+         prefWidth="150.0" style="-fx-font-family: serif;" />
       <TextArea fx:id="descriptionField" layoutX="120.0" layoutY="244.0" prefHeight="76.0"
-         prefWidth="200.0"
-         style="-fx-font-family: serif;" />
+         prefWidth="200.0" style="-fx-font-family: serif;" />
+
    </children>
 </AnchorPane>
