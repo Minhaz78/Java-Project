@@ -1,7 +1,5 @@
 package cqu.mavenproject1;
 
-import java.sql.Date;
-
 /**
  * The DisasterAlert class represents an alert related to a disaster, including
  * the date, type, severity, critical status, and description of the alert.
@@ -10,7 +8,7 @@ import java.sql.Date;
  */
 public class DisasterAlert {
 
-    private Date date;           // The date when the alert was issued
+    private String date;           // The date when the alert was issued
     private String alertType;    // The type of the alert (e.g., Fire, Flood)
     private int severity;        // The severity level of the alert (e.g., 1-5)
     private String critical;     // Indicates whether the alert is critical (e.g., High, Medium, Low)
@@ -26,7 +24,7 @@ public class DisasterAlert {
      * Low)
      * @param description a description of the alert
      */
-    public DisasterAlert(Date date, String alertType, int severity, String critical, String description) {
+    public DisasterAlert(String date, String alertType, int severity, String critical, String description) {
         this.date = date;
         this.alertType = alertType;
         this.severity = severity;
@@ -39,7 +37,7 @@ public class DisasterAlert {
      *
      * @return the alert date
      */
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -48,7 +46,7 @@ public class DisasterAlert {
      *
      * @param date the alert date to set
      */
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

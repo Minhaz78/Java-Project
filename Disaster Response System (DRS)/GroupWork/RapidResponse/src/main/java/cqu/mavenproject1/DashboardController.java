@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -110,6 +111,8 @@ public class DashboardController implements Initializable {
     private final ObservableList<LiveUpdate> liveUpdatesData = FXCollections.observableArrayList();  // ObservableList for live updates
 
     private static User loggedInUser;  // Reference to the currently logged-in user
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy"); // e.g., October 07, 2024
 
     /**
      * Initializes the controller, setting up visibility and loading data. The
@@ -254,9 +257,10 @@ public class DashboardController implements Initializable {
                 String location = rs.getString("location");
                 Date date = rs.getDate("date");
                 String description = rs.getString("description");
+                String formattedDate = dateFormat.format(date);
 
                 // Add the data to the ObservableList for the TableView
-                disasterData.add(new Disaster(disasterType, location, date.toLocalDate(), description));
+                disasterData.add(new Disaster(disasterType, location, formattedDate, description));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -275,7 +279,9 @@ public class DashboardController implements Initializable {
                 int availableUnits = rs.getInt("available_units");
                 int totalUnits = rs.getInt("total_units");
                 Date date = rs.getDate("date");
-                resourceData.add(new Resource(resourceName, availableUnits, totalUnits, date));
+                String formattedDate = dateFormat.format(date);
+
+                resourceData.add(new Resource(resourceName, availableUnits, totalUnits, formattedDate));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -295,8 +301,9 @@ public class DashboardController implements Initializable {
                 String critical = rs.getString("critical");
                 String description = rs.getString("description");
                 Date date = rs.getDate("date");
+                String formattedDate = dateFormat.format(date);
 
-                disasterAlertData.add(new DisasterAlert(date, alertType, severity, critical, description));
+                disasterAlertData.add(new DisasterAlert(formattedDate, alertType, severity, critical, description));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -307,7 +314,7 @@ public class DashboardController implements Initializable {
     private void loadLiveUpdatesFromDatabase() {
         liveUpdatesData.clear();  // Clear existing data
 
-        String query = "SELECT * FROM live_updates ORDER BY timestamp DESC";
+        String query = "SELECT * FROM live_updates";
 
         try (Connection conn = DatabaseConnector.getConnection(); Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
@@ -315,10 +322,16 @@ public class DashboardController implements Initializable {
             while (rs.next()) {
                 String updateType = rs.getString("update_type");
                 String description = rs.getString("description");
-                Timestamp timestamp = rs.getTimestamp("timestamp");
+                Timestamp createdAt = rs.getTimestamp("created_at");
+
+                // Calculate relative time in seconds
+                long timeDifference = System.currentTimeMillis() - createdAt.getTime();
+
+                // Convert seconds into a more user-friendly format
+                String relativeTime = formatRelativeTime(timeDifference / 1000); // Convert milliseconds to seconds
 
                 // Add data to the ObservableList for the TableView
-                liveUpdatesData.add(new LiveUpdate(updateType, description, timestamp));
+                liveUpdatesData.add(new LiveUpdate(updateType, description, relativeTime));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -328,4 +341,15 @@ public class DashboardController implements Initializable {
         liveUpdatesTable.setItems(liveUpdatesData);  // Bind the ObservableList to the TableView
     }
 
+    private String formatRelativeTime(long seconds) {
+        if (seconds < 60) {
+            return seconds + " seconds ago";
+        } else if (seconds < 3600) {
+            return (seconds / 60) + " minutes ago";
+        } else if (seconds < 86400) {
+            return (seconds / 3600) + " hours ago";
+        } else {
+            return (seconds / 86400) + " days ago";
+        }
+    }
 }

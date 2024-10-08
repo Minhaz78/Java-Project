@@ -1,7 +1,5 @@
 package cqu.mavenproject1;
 
-import java.sql.Timestamp;
-
 /**
  * The LiveUpdate class represents an update related to a disaster or resource,
  * including the type of update, a description, and a timestamp indicating when
@@ -13,7 +11,7 @@ public class LiveUpdate {
 
     private String updateType;  // The type of update (e.g., Resource, Disaster, Alert)
     private String description;  // A description of the update
-    private Timestamp timestamp;  // The timestamp when the update was created
+    private String timestamp;  // The timestamp when the update was created
 
     /**
      * Constructor to create a LiveUpdate object.
@@ -23,7 +21,7 @@ public class LiveUpdate {
      * @param description a description of the update
      * @param timestamp the timestamp when the update occurred
      */
-    public LiveUpdate(String updateType, String description, Timestamp timestamp) {
+    public LiveUpdate(String updateType, String description, String timestamp) {
         this.updateType = updateType;
         this.description = description;
         this.timestamp = timestamp;
@@ -52,7 +50,7 @@ public class LiveUpdate {
      *
      * @return the timestamp of the update
      */
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
@@ -61,7 +59,7 @@ public class LiveUpdate {
      *
      * @param timestamp the timestamp to set
      */
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 }

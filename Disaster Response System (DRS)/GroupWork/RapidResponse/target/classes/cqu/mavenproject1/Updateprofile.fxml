@@ -10,25 +10,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;"
-   xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="cqu.mavenproject1.UpdateprofileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.UpdateprofileController">
    <children>
-      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
+      <Pane prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
          <children>
-            <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0"
-               text="Rapid Response">
+            <Label layoutX="20.0" layoutY="11.0" prefHeight="26.0" prefWidth="149.0" text="Rapid Response">
                <font>
                   <Font name="Chalkboard SE Light" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="36.0" prefHeight="26.0" prefWidth="193.0"
-               text="Disaster Management and response!">
+            <Label layoutX="20.0" layoutY="36.0" prefHeight="26.0" prefWidth="193.0" text="Disaster Management and response!">
                <font>
                   <Font name="Apple Braille" size="11.0" />
                </font>
             </Label>
+            <Button fx:id="gotodashboardButton3" layoutX="597.0" layoutY="15.0" mnemonicParsing="false" text="Go to Dashboard">
+               <font>
+                  <Font name="Serif Regular" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutButton" layoutX="715.0" layoutY="15.0" mnemonicParsing="false" text="Log Out">
+               <font>
+                  <Font name="Serif Regular" size="13.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Label layoutX="21.0" layoutY="208.0" text="Password:">
@@ -51,10 +56,8 @@
             <Font name="Serif Regular" size="13.0" />
          </font>
       </TextField>
-      <ChoiceBox fx:id="genderchoicebox" layoutX="96.0" layoutY="248.0" prefHeight="26.0"
-         prefWidth="160.0" style="-fx-font-family: serif;" />
-      <DatePicker fx:id="birthday" layoutX="96.0" layoutY="287.0" prefHeight="26.0"
-         prefWidth="160.0" style="-fx-font-family: serif;" />
+      <ChoiceBox fx:id="genderchoicebox" layoutX="96.0" layoutY="248.0" prefHeight="26.0" prefWidth="160.0" style="-fx-font-family: serif;" />
+      <DatePicker fx:id="birthday" layoutX="96.0" layoutY="287.0" prefHeight="26.0" prefWidth="160.0" style="-fx-font-family: serif;" />
       <Label layoutX="24.0" layoutY="85.0" text="Update Profile">
          <font>
             <Font name="Serif Bold" size="18.0" />
@@ -65,27 +68,12 @@
             <Font name="Serif Regular" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="updateButton" layoutX="516.0" layoutY="360.0" mnemonicParsing="false"
-         style="-fx-background-color: #77DD77#77DD77;" text="Update">
+      <Button fx:id="updateButton" layoutX="203.0" layoutY="332.0" mnemonicParsing="false" style="-fx-background-color: #77DD77#77DD77;" text="Update">
          <font>
             <Font name="Serif Regular" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="gotodashboardButton3" layoutX="409.0" layoutY="11.0" mnemonicParsing="false"
-         text="Go to Dashboard">
-         <font>
-            <Font name="Serif Regular" size="13.0" />
-         </font>
-      </Button>
-      <Button fx:id="logoutButton" layoutX="525.0" layoutY="11.0" mnemonicParsing="false"
-         text="Log Out">
-         <font>
-            <Font name="Serif Regular" size="13.0" />
-         </font>
-      </Button>
-      <PasswordField fx:id="password" layoutX="95.0" layoutY="204.0" prefHeight="26.0"
-         prefWidth="163.0"
-         style="-fx-font-family: serif;">
+      <PasswordField fx:id="password" layoutX="95.0" layoutY="204.0" prefHeight="26.0" prefWidth="163.0" style="-fx-font-family: serif;">
          <font>
             <Font name="Serif Regular" size="13.0" />
          </font>
