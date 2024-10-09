@@ -99,7 +99,11 @@ public class DisasterReportController implements Initializable {
                 boolean isSubmissionSuccessful = submitDisasterReport(disasterTypeValue, locationValue, dateValue, descriptionValue);
                 if (isSubmissionSuccessful) {
                     showAlert("Submission Successful", "Disaster report submitted successfully!");
-                    addLiveUpdateToDatabase("Disaster", "New disaster '" + disasterTypeValue + "' happened at location: " + locationValue + ".");
+                    String message = "New disaster '" + disasterTypeValue + "' happened at location: " + locationValue + ".";
+                    addLiveUpdateToDatabase("Disaster", message);
+                    User loggedInUser = App.getLoggedInUser();
+
+                    SimpleEmail.sendEmail(loggedInUser.getEmail(), loggedInUser.getUsername(), "New Disaster reported!!!", message);
                     App.setRoot("dashboard"); // Navigate to dashboard upon successful submission
                 } else {
                     showAlert("Submission Failed", "There was an error submitting the disaster report.");

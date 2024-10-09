@@ -95,7 +95,7 @@ public class LoginController implements Initializable {
 
             if (login(username, password)) {
                 showAlert("Login Successful", "Welcome " + username + "!");
-                App.setLoggedInUser(loggedInUser.getUsername());
+                App.setLoggedInUser(loggedInUser);
                 App.setRoot("dashboard");
             } else {
                 showAlert("Login Failed", "Invalid username or password.");
@@ -180,7 +180,8 @@ public class LoginController implements Initializable {
                 boolean isSignupSuccessful = signup(usernameValue, emailValue, passwordValue, genderValue, birthdayValue, role);
                 if (isSignupSuccessful) {
                     showAlert("Signup Successful", "Welcome to Rapid Response, " + usernameValue + "!");
-                    App.setLoggedInUser(usernameValue);
+                    User user = new User(usernameValue, emailValue, passwordValue, genderValue, birthdayValue, role);
+                    App.setLoggedInUser(user);
                     App.setRoot("dashboard");
                 } else {
                     showAlert("Signup Failed", "There was an error signing up.");

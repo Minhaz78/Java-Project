@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SimpleEmail",
+            "request": "launch",
+            "mainClass": "cqu.mavenproject1/cqu.mavenproject1.SimpleEmail",
+            "projectName": "RapidResponse"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
