@@ -47,7 +47,7 @@ public class UpdateprofileController implements Initializable {
     @FXML
     private Button logoutButton;  // Button for logging out of the application
 
-    private String loggedInUsername;  // Stores the username of the currently logged-in user
+    private User loggedInUser;  // Stores the username of the currently logged-in user
 
     /**
      * Initializes the update profile view, setting up choice boxes, buttons,
@@ -94,11 +94,11 @@ public class UpdateprofileController implements Initializable {
      * input fields.
      */
     private void loadUserProfile() {
-        loggedInUsername = App.getLoggedInUser();  // Get the username of the currently logged-in user
+        loggedInUser = App.getLoggedInUser();  // Get the username of the currently logged-in user
 
         String selectSQL = "SELECT * FROM users WHERE username = ?";
         try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(selectSQL)) {
-            pstmt.setString(1, loggedInUsername);
+            pstmt.setString(1, loggedInUser.getUsername());
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
@@ -137,7 +137,7 @@ public class UpdateprofileController implements Initializable {
             pstmt.setString(2, passwordValue);
             pstmt.setString(3, genderValue);
             pstmt.setString(4, birthdayValue);
-            pstmt.setString(5, loggedInUsername);
+            pstmt.setString(5, loggedInUser.getUsername());
 
             pstmt.executeUpdate();
             showAlert(Alert.AlertType.INFORMATION, "Update Successful", "Profile updated successfully!");

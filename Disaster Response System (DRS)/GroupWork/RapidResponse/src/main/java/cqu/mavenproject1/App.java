@@ -17,15 +17,15 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
-    private static String loggedInUser;
+    private static User loggedInUser;
 
     /**
      * Sets the logged-in user's username.
      *
      * @param username the username of the logged-in user
      */
-    public static void setLoggedInUser(String username) {
-        loggedInUser = username;
+    public static void setLoggedInUser(User user) {
+        loggedInUser = user;
     }
 
     /**
@@ -34,7 +34,7 @@ public class App extends Application {
      * @return the username of the logged-in user, or null if no user is logged
      * in
      */
-    public static String getLoggedInUser() {
+    public static User getLoggedInUser() {
         return loggedInUser;
     }
 
@@ -54,7 +54,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Start with the Login view
-        scene = new Scene(loadFXML("dashboard"), 800, 400);  // Adjust size if needed
+        scene = new Scene(loadFXML("login"), 800, 400);  // Adjust size if needed
         scene.getRoot().setStyle("-fx-font-family: 'serif'");
         stage.setScene(scene);
         stage.setTitle("Login");

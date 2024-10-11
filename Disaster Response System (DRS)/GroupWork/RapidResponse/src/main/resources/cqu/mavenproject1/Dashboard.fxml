@@ -51,38 +51,49 @@ Disaster" />
    </children>
 </AnchorPane>-->
 
-<AnchorPane fx:id="dashboardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.DashboardController">
+<AnchorPane fx:id="dashboardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+   minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0"
+   style="-fx-background-color: #F5F5DC#F5F5DC #F5F5DC#F5F5DC;" xmlns="http://javafx.com/javafx/17"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="cqu.mavenproject1.DashboardController">
    <children>
       <Pane prefHeight="76.0" prefWidth="800.0" style="-fx-background-color: #ADD8E6#ADD8E6;">
          <children>
-            <Label layoutX="20.0" layoutY="3.0" prefHeight="26.0" prefWidth="149.0" text="Rapid Response">
+            <Label layoutX="20.0" layoutY="3.0" prefHeight="26.0" prefWidth="149.0"
+               text="Rapid Response">
                <font>
                   <Font name="Chalkboard SE Light" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="28.0" prefHeight="26.0" prefWidth="193.0" text="Disaster Management and response!">
+            <Label layoutX="20.0" layoutY="28.0" prefHeight="26.0" prefWidth="193.0"
+               text="Disaster Management and response!">
                <font>
                   <Font name="Apple Braille" size="11.0" />
                </font>
             </Label>
-            <Button fx:id="logoutButton" layoutX="715.0" layoutY="15.0" mnemonicParsing="false" text="Log out">
+            <Button fx:id="logoutButton" layoutX="715.0" layoutY="15.0" mnemonicParsing="false"
+               text="Log out">
                <font>
                   <Font name="Serif Regular" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="updateprofileButton" layoutX="605.0" layoutY="16.0" mnemonicParsing="false" text="Update Profile">
+            <Button fx:id="updateprofileButton" layoutX="605.0" layoutY="16.0"
+               mnemonicParsing="false" text="Update Profile">
                <font>
                   <Font name="Serif Regular" size="13.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Label alignment="CENTER" layoutX="293.0" layoutY="78.0" style="-fx-background-color: #FFA500#FFA500;" text="Welcome to Rapid Response!">
+      <Label alignment="CENTER" layoutX="293.0" layoutY="78.0"
+         style="-fx-background-color: #FFA500#FFA500;" text="Welcome to Rapid Response!">
          <font>
             <Font name="Didot" size="16.0" />
          </font>
       </Label>
-      <TabPane layoutX="3.0" layoutY="102.0" prefHeight="294.0" prefWidth="793.0" style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0; -fx-font-family: 'Serif';" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="mainTabPane" layoutX="3.0" layoutY="102.0" prefHeight="294.0"
+         prefWidth="793.0"
+         style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0; -fx-font-family: 'Serif';"
+         tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Live  Updates">
                <content>
@@ -90,9 +101,12 @@ Disaster" />
                      <children>
                         <TableView fx:id="liveUpdatesTable" prefHeight="239.0" prefWidth="793.0">
                            <columns>
-                              <TableColumn fx:id="updateTypeColumn" prefWidth="150.0" text="Update Type" />
-                              <TableColumn fx:id="updateDescriptionColumn" prefWidth="341.0" text="Description" />
-                              <TableColumn fx:id="updateTimeColumn" prefWidth="359.0" text="Timestamp" />
+                              <TableColumn fx:id="updateTypeColumn" prefWidth="150.0"
+                                 text="Update Type" />
+                              <TableColumn fx:id="updateDescriptionColumn" prefWidth="341.0"
+                                 text="Description" />
+                              <TableColumn fx:id="updateTimeColumn" prefWidth="359.0"
+                                 text="Timestamp" />
                            </columns>
                         </TableView>
                      </children>
@@ -105,19 +119,27 @@ Disaster" />
                      <children>
                         <VBox prefHeight="336.0" prefWidth="793.0">
                            <children>
-                              <TableView fx:id="resourceTable" prefHeight="354.0" prefWidth="793.0" style="-fx-background-color: white;">
+                              <TableView fx:id="resourceTable" prefHeight="354.0" prefWidth="793.0"
+                                 style="-fx-background-color: white;">
                                  <columns>
-                                    <TableColumn fx:id="resourceNameColumn" prefWidth="208.0" text="Resource Name" />
-                                    <TableColumn fx:id="availableUnitsColumn" prefWidth="179.0" text="Available Units" />
-                                    <TableColumn fx:id="totalUnitsColumn" prefWidth="203.0" text="Total Units" />
-                                    <TableColumn fx:id="resourceDateColumn" prefWidth="242.0" text="Date" />
+                                    <TableColumn fx:id="resourceNameColumn" prefWidth="208.0"
+                                       text="Resource Name" />
+                                    <TableColumn fx:id="availableUnitsColumn" prefWidth="179.0"
+                                       text="Available Units" />
+                                    <TableColumn fx:id="totalUnitsColumn" prefWidth="203.0"
+                                       text="Total Units" />
+                                    <TableColumn fx:id="resourceDateColumn" prefWidth="242.0"
+                                       text="Date" />
                                  </columns>
                               </TableView>
                            </children>
                         </VBox>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="31.0" prefWidth="593.0" style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0;">
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="31.0" prefWidth="593.0"
+                           style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0;">
                            <children>
-                              <Button fx:id="addresourceButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="24.0" prefWidth="95.0" text="Add Resource">
+                              <Button fx:id="addresourceButton" alignment="BOTTOM_CENTER"
+                                 mnemonicParsing="false" prefHeight="24.0" prefWidth="95.0"
+                                 text="Add Resource">
                                  <font>
                                     <Font name="Serif Regular" size="13.0" />
                                  </font>
@@ -128,21 +150,31 @@ Disaster" />
                   </VBox>
                </content>
             </Tab>
-            <Tab text="Disaster Reports">
+            <Tab text="Disaster Reports" fx:id="disasterReportsTab">
                <content>
                   <VBox prefHeight="398.0" prefWidth="784.0">
                      <children>
-                        <TableView fx:id="disasterTable" prefHeight="249.0" prefWidth="772.0" style="-fx-background-color: #F0FFF0;">
+                        <TableView fx:id="disasterTable" prefHeight="249.0" prefWidth="772.0"
+                           style="-fx-background-color: #F0FFF0;">
                            <columns>
-                              <TableColumn fx:id="disasterTypeColumn" prefWidth="123.0" text="Disaster Types" />
-                              <TableColumn fx:id="disasterLocationColumn" prefWidth="173.0" text="Location" />
-                              <TableColumn fx:id="disasterDescriptionColumn" minWidth="0.0" prefWidth="336.0" text="Description" />
+                              <TableColumn fx:id="disasterTypeColumn" prefWidth="100.0"
+                                 text="Disaster Types" />
+                              <TableColumn fx:id="disasterLocationColumn" prefWidth="100.0"
+                                 text="Location" />
+                              <TableColumn fx:id="disasterDescriptionColumn" minWidth="0.0"
+                                 prefWidth="256.0" text="Description" />
                               <TableColumn fx:id="disasterDateColumn" prefWidth="161.0" text="Date" />
+                              <TableColumn fx:id="disasterUserColumn" minWidth="0.0"
+                                 prefWidth="100.0" text="User" />
+                              <TableColumn fx:id="disasterActions" prefWidth="100.0"
+                                 text="Actions" />
                            </columns>
                         </TableView>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="784.0" style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0;">
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="784.0"
+                           style="-fx-background-color: #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0 #F0FFF0#F0FFF0;">
                            <children>
-                              <Button fx:id="reportButton" mnemonicParsing="false" text="Report Disaster">
+                              <Button fx:id="reportButton" mnemonicParsing="false"
+                                 text="Report Disaster">
                                  <font>
                                     <Font name="Serif Regular" size="13.0" />
                                  </font>
@@ -159,20 +191,27 @@ Disaster" />
                      <children>
                         <VBox prefHeight="232.0" prefWidth="793.0">
                            <children>
-                              <TableView fx:id="alertTableView" prefHeight="232.0" prefWidth="793.0" style="-fx-background-color: #F0FFF0;">
+                              <TableView fx:id="alertTableView" prefHeight="232.0" prefWidth="793.0"
+                                 style="-fx-background-color: #F0FFF0;">
                                  <columns>
-                                    <TableColumn fx:id="alertTypeColumn" prefWidth="104.0" text="Alert Type" />
-                                    <TableColumn fx:id="alertSeverityColumn" prefWidth="100.0" text="Severity" />
-                                    <TableColumn fx:id="alertCriticalColumn" prefWidth="103.0" text="Critical" />
-                                    <TableColumn fx:id="alertDescriptionColumn" prefWidth="346.0" text="Description" />
-                                    <TableColumn fx:id="alertDateColumn" prefWidth="139.0" text="Date" />
+                                    <TableColumn fx:id="alertTypeColumn" prefWidth="104.0"
+                                       text="Alert Type" />
+                                    <TableColumn fx:id="alertSeverityColumn" prefWidth="100.0"
+                                       text="Severity" />
+                                    <TableColumn fx:id="alertCriticalColumn" prefWidth="103.0"
+                                       text="Critical" />
+                                    <TableColumn fx:id="alertDescriptionColumn" prefWidth="346.0"
+                                       text="Description" />
+                                    <TableColumn fx:id="alertDateColumn" prefWidth="139.0"
+                                       text="Date" />
                                  </columns>
                               </TableView>
                            </children>
                         </VBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="30.0" prefWidth="593.0">
                            <children>
-                              <Button fx:id="addalertbutton" alignment="TOP_LEFT" mnemonicParsing="false" text="Add Alert">
+                              <Button fx:id="addalertbutton" alignment="TOP_LEFT"
+                                 mnemonicParsing="false" text="Add Alert">
                                  <font>
                                     <Font name="Serif Regular" size="13.0" />
                                  </font>
