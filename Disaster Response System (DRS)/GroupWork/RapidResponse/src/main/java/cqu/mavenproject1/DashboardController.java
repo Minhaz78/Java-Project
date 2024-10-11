@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,10 +16,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class for the Dashboard
@@ -71,6 +75,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableColumn<Disaster, String> disasterDescriptionColumn;  // Column displaying descriptions of disasters
+
+    @FXML
+    private TableColumn<Disaster, String> disasterUserColumn;  // Column displaying the user who reported the disaster
+
+    @FXML
+    private TableColumn<Disaster, String> disasterActions;  // Column displaying the actions for the responder
 
     @FXML
     private TableView<DisasterAlert> alertTableView;  // TableView for displaying disaster alerts
@@ -128,16 +138,37 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         addresourceButton.setVisible(false);
         addalertbutton.setVisible(false);
+        disasterActions.setVisible(false);
 
-        if (loggedInUser != null) {
-            String role = loggedInUser.getRole();
+        if (loggedInUser == null) {
+            System.out.println("User is not logged in.");
+            return;
+        }
 
-            if (role.equals("Resource Manager")) {
-                addresourceButton.setVisible(true);  // Hide the "Add Resource" button for non-Resource Managers
-            }
-            if (role.equals("Emergency Responder")) {
-                addalertbutton.setVisible(true);  // Hide the "Add Alert" button for non-Emergency Responders
-            }
+        String role = loggedInUser.getRole();
+        if (role.equals("Resource Manager")) {
+            addresourceButton.setVisible(true);  // Hide the "Add Resource" button for non-Resource Managers
+        }
+        if (role.equals("Emergency Responder")) {
+            addalertbutton.setVisible(true);
+            disasterActions.setVisible(true); // Show the "Approve" and "Decline" buttons for Emergency Responders
+            disasterActions.setCellFactory(column -> new TableCell<Disaster, String>() {
+                private final Button approveButton = new Button("A"); // Accept
+                private final Button declineButton = new Button("D"); // Decline
+
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || getTableRow() == null) {
+                        setGraphic(null);
+                    } else {
+                        Disaster report = getTableRow().getItem();
+                        approveButton.setOnAction(event -> updateReportStatus(report, "approved"));
+                        declineButton.setOnAction(event -> updateReportStatus(report, "declined"));
+                        setGraphic(new HBox(approveButton, declineButton));
+                    }
+                }
+            });
         }
 
         if (resourceTable != null) {
@@ -156,10 +187,11 @@ public class DashboardController implements Initializable {
             disasterTypeColumn.setCellValueFactory(new PropertyValueFactory<>("disasterType"));
             disasterLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
             disasterDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));  // Bind the LocalDate column
+            disasterUserColumn.setCellValueFactory(new PropertyValueFactory<>("user"));  // Bind the LocalDate column
             disasterDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
             disasterTable.setItems(disasterData);  // Bind the ObservableList to the TableView
-            loadDisasterDataFromDatabase();  // Load data from the database
+            loadDisasterDataFromDatabase(loggedInUser.getRole());  // Load data from the database
         }
 
         // Existing initialization code for disaster and resource tables
@@ -181,9 +213,6 @@ public class DashboardController implements Initializable {
             updateTimeColumn.setCellValueFactory(new PropertyValueFactory<>("timestamp"));
 
             loadLiveUpdatesFromDatabase();
-
-            // Sort the live updates by time
-            // liveUpdatesData.sort((u1, u2) -> u2.getTime().compareTo(u1.getTime()));  // Sort by time descending
         }
 
         reportButton.setOnAction(event -> {
@@ -245,22 +274,29 @@ public class DashboardController implements Initializable {
     /**
      * Loads disaster data from the database and populates the disaster table.
      */
-    private void loadDisasterDataFromDatabase() {
+    private void loadDisasterDataFromDatabase(String role) {
         // Clear the existing disaster data
         disasterData.clear();
 
         try (Connection conn = DatabaseConnector.getConnection(); Statement stmt = conn.createStatement()) {
-            String query = "SELECT * FROM disaster_reports";
+            String query;
+            if ("Emergency Responder".equals(role)) {
+                query = "SELECT * FROM drs_database.disaster_reports where status = 'pending' ORDER BY date DESC";
+            } else {
+                query = "SELECT * FROM drs_database.disaster_reports where status = 'approved' ORDER BY date DESC";
+            }
+
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 String disasterType = rs.getString("disaster_type");
                 String location = rs.getString("location");
                 Date date = rs.getDate("date");
+                String user = rs.getString("user");
                 String description = rs.getString("description");
                 String formattedDate = dateFormat.format(date);
 
                 // Add the data to the ObservableList for the TableView
-                disasterData.add(new Disaster(disasterType, location, formattedDate, description));
+                disasterData.add(new Disaster(disasterType, location, formattedDate, user, description));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -283,6 +319,7 @@ public class DashboardController implements Initializable {
 
                 resourceData.add(new Resource(resourceName, availableUnits, totalUnits, formattedDate));
             }
+            resourceData.sort((r1, r2) -> r2.getDate().compareTo(r1.getDate()));  // Sort by date descending
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -305,6 +342,7 @@ public class DashboardController implements Initializable {
 
                 disasterAlertData.add(new DisasterAlert(formattedDate, alertType, severity, critical, description));
             }
+            disasterAlertData.sort((a1, a2) -> a2.getDate().compareTo(a1.getDate()));  // Sort by date descending
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -314,7 +352,7 @@ public class DashboardController implements Initializable {
     private void loadLiveUpdatesFromDatabase() {
         liveUpdatesData.clear();  // Clear existing data
 
-        String query = "SELECT * FROM live_updates";
+        String query = "SELECT * FROM live_updates ORDER BY created_at DESC";  // Query to get live updates sorted by time
 
         try (Connection conn = DatabaseConnector.getConnection(); Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
@@ -341,6 +379,36 @@ public class DashboardController implements Initializable {
         liveUpdatesTable.setItems(liveUpdatesData);  // Bind the ObservableList to the TableView
     }
 
+    private void updateReportStatus(Disaster report, String newStatus) {
+        String updateQuery = "UPDATE disaster_reports SET status = ? WHERE disaster_type = ? AND location = ? AND user = ?";
+
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement stmt = conn.prepareStatement(updateQuery)) {
+
+            stmt.setString(1, newStatus);
+            stmt.setString(2, report.getDisasterType());
+            stmt.setString(3, report.getLocation());
+            stmt.setString(4, report.getUser());
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                showAlert("Success", "Report status updated to " + newStatus);
+                loadDisasterDataFromDatabase(loggedInUser.getRole());
+            } else {
+                showAlert("Error", "Failed to update report status.");
+            }
+
+            // If approved, add it to live updates
+            if (newStatus.equals("approved")) {
+                String message = "New disaster '" + report.getDisasterType() + "' happened at location: " + report.getLocation() + ".";
+                addLiveUpdateToDatabase("Disaster", message);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to update report status.");
+        }
+    }
+
     private String formatRelativeTime(long seconds) {
         if (seconds < 60) {
             return seconds + " seconds ago";
@@ -351,5 +419,46 @@ public class DashboardController implements Initializable {
         } else {
             return (seconds / 86400) + " days ago";
         }
+    }
+
+    /**
+     * Adds a live update to the database to record the new disaster report.
+     *
+     * @param updateType the type of update (e.g., "Disaster")
+     * @param description a description of the update
+     */
+    private void addLiveUpdateToDatabase(String updateType, String description) {
+        String insertLiveUpdateSQL = "INSERT INTO live_updates (update_type, description) VALUES (?, ?)";
+
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(insertLiveUpdateSQL)) {
+
+            pstmt.setString(1, updateType);
+            pstmt.setString(2, description);
+
+            pstmt.executeUpdate();
+            System.out.println("Live update added successfully!");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Displays an alert message to the user for success or error notifications.
+     *
+     * @param title the title of the alert
+     * @param message the message to be displayed in the alert
+     */
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setStyle(
+                "-fx-font-family: 'Serif'; "
+                + // Set the font to Serif
+                "-fx-font-size: 14px;" // Set a custom font size if needed
+        );
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

@@ -11,6 +11,8 @@ public class Disaster {
     private String disasterType;  // The type of the disaster (e.g., Fire, Flood)
     private String location;      // The location where the disaster occurred
     private String date;       // The date when the disaster occurred
+    private String user;       // The user who reported the disaster
+    private String status;     // The status of the disaster report
     private String description;   // A description of the disaster
 
     /**
@@ -21,10 +23,11 @@ public class Disaster {
      * @param date the date when the disaster occurred
      * @param description a description of the disaster
      */
-    public Disaster(String disasterType, String location, String date, String description) {
+    public Disaster(String disasterType, String location, String date, String user, String description) {
         this.disasterType = disasterType;
         this.location = location;
         this.date = date;
+        this.user = user;
         this.description = description;
     }
 
@@ -98,5 +101,21 @@ public class Disaster {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

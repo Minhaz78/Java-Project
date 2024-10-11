@@ -54,7 +54,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Start with the Login view
-        scene = new Scene(loadFXML("dashboard"), 800, 400);  // Adjust size if needed
+        scene = new Scene(loadFXML("login"), 800, 400);  // Adjust size if needed
         scene.getRoot().setStyle("-fx-font-family: 'serif'");
         stage.setScene(scene);
         stage.setTitle("Login");

@@ -47,16 +47,18 @@ CREATE TABLE disaster_reports (
     disaster_type VARCHAR(50) NOT NULL,
     location VARCHAR(100) NOT NULL,
     date DATE NOT NULL,
+    user VARCHAR(50) NOT NULL,
+    status VARCHAR(50) DEFAULT 'pending', -- Added status column with default value
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Added created_at column
 );
 
 -- Insert initial disaster report data
-INSERT INTO disaster_reports (disaster_type, location, date, description) VALUES 
-('Fire', 'California', '2024-08-15', 'A massive wildfire spreading rapidly across California.'),
-('Flood', 'Queensland', '2024-09-01', 'Severe flooding caused by heavy rains in Queensland.'),
-('Earthquake', 'Tokyo', '2024-09-07', 'A major earthquake with a magnitude of 7.2 hit Tokyo.'),
-('Hurricane', 'Florida', '2024-09-12', 'A Category 5 hurricane approaching the coast of Florida.');
+INSERT INTO disaster_reports (disaster_type, location, date, user, status, description) VALUES 
+('Fire', 'California', '2024-08-15', 'visitor', 'pending', 'A massive wildfire spreading rapidly across California.'),
+('Flood', 'Queensland', '2024-09-01', 'visitor', 'pending', 'Severe flooding caused by heavy rains in Queensland.'),
+('Earthquake', 'Tokyo', '2024-09-07', 'visitor', 'approved', 'A major earthquake with a magnitude of 7.2 hit Tokyo.'),
+('Hurricane', 'Florida', '2024-09-12', 'visitor', 'approved', 'A Category 5 hurricane approaching the coast of Florida.');
 
 -- Drop and create alerts table
 DROP TABLE IF EXISTS alerts;

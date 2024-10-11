@@ -98,9 +98,8 @@ public class DisasterReportController implements Initializable {
             } else {
                 boolean isSubmissionSuccessful = submitDisasterReport(disasterTypeValue, locationValue, dateValue, descriptionValue);
                 if (isSubmissionSuccessful) {
-                    showAlert("Submission Successful", "Disaster report submitted successfully!");
+                    showAlert("Submission Successful", "Disaster report submitted successfully! Waiting for approval.");
                     String message = "New disaster '" + disasterTypeValue + "' happened at location: " + locationValue + ".";
-                    addLiveUpdateToDatabase("Disaster", message);
                     User loggedInUser = App.getLoggedInUser();
 
                     SimpleEmail.sendEmail(loggedInUser.getEmail(), loggedInUser.getUsername(), "New Disaster reported!!!", message);
@@ -124,14 +123,16 @@ public class DisasterReportController implements Initializable {
      * @return true if the submission is successful, false otherwise
      */
     private boolean submitDisasterReport(String disasterType, String location, String date, String description) {
-        String insertQuery = "INSERT INTO disaster_reports (disaster_type, location, date, description) VALUES (?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO disaster_reports (disaster_type, location, date, user, status, description) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement stmt = conn.prepareStatement(insertQuery)) {
 
             stmt.setString(1, disasterType);
             stmt.setString(2, location);
             stmt.setString(3, date);  // Here we use java.sql.Date
-            stmt.setString(4, description);
+            stmt.setString(4, App.getLoggedInUser().getUsername());
+            stmt.setString(5, "pending");
+            stmt.setString(6, description);
             stmt.executeUpdate();
 
             return true; // Submission successful
